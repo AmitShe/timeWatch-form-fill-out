@@ -8,10 +8,10 @@ const PASSWORD_SELECTOR = '[id=pwKeyboard]'
 
 const LOGIN_SELECTOR = '[name=B1]'
 
-const START_MINUTE = '[id=emm0]'
-const START_HOUR = '[id=ehh0]'
-const END_MINUTE = '[id=xmm0]'
-const END_HOUR = '[id=xhh0]'
+const START_MINUTE_SELECTOR = '[id=emm0]'
+const START_HOUR_SELECTOR = '[id=ehh0]'
+const END_MINUTE_SELECTOR = '[id=xmm0]'
+const END_HOUR_SELECTOR = '[id=xhh0]'
 
 const UPDATE_SELECTOR = 'body > div > span > table:nth-child(3) > tbody > tr:nth-child(1) > td:nth-child(2) > form > div > div > table > tbody > tr:nth-child(2) > td:nth-child(2) > font > a > b'
 
@@ -42,10 +42,10 @@ async function main() {
 
     const popup = await newPagePromise;
     await popup.waitForTimeout(1000);
-    await popup.type(START_MINUTE, '00')
-    await popup.type(START_HOUR, '09')
-    await popup.type(END_MINUTE, '00')
-    await popup.type(END_HOUR, '18')
+    await popup.type(START_MINUTE_SELECTOR, '00')
+    await popup.type(START_HOUR_SELECTOR, '09')
+    await popup.type(END_MINUTE_SELECTOR, '00')
+    await popup.type(END_HOUR_SELECTOR, '18')
     await popup.click(LOGIN_SELECTOR)
     await page.waitForTimeout(1000);
   }
