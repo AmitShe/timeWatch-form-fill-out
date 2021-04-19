@@ -19,7 +19,7 @@ const TIMEWATCH_URL = 'https://checkin.timewatch.co.il/punch/punch.php'
 
 async function main() {
   browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
   })
   page = await browser.newPage()
   await page.goto(TIMEWATCH_URL, { waitUntil: 'load' })
@@ -32,7 +32,9 @@ async function main() {
   await page.waitForTimeout(2000);
 
   const daysToFill = await page.$$('[bgcolor="red"]')
+  console.log(`you have ${daysToFill.length} days to update`)
   for (var i = 0; i < daysToFill.length; i++) {
+    console.log(`updating ${i+1} out of ${daysToFill.length} days`)
     const newPagePromise = new Promise(x => browser.once('targetcreated', target => x(target.page())));
     const dayToFill = await page.$('[bgcolor="red"]')
     await dayToFill.click()
