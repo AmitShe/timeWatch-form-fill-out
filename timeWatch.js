@@ -35,10 +35,10 @@ async function main() {
   console.log(`you have ${daysToFill.length} days to update`)
   for (var i = 0; i < daysToFill.length; i++) {
     console.log(`updating ${i+1} out of ${daysToFill.length} days`)
-    const newPagePromise = new Promise(x => browser.once('targetcreated', target => x(target.page())));
+    const newPagePromise = new Promise(x => browser.once('targetcreated', target => x(target.page())))
     const dayToFill = await page.$('[bgcolor="red"]')
     await dayToFill.click()
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1000)
 
     const popup = await newPagePromise
     await popup.waitForTimeout(1000)
