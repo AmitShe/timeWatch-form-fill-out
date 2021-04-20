@@ -29,7 +29,7 @@ async function main() {
   await page.click(LOGIN_SELECTOR)
   await page.waitForNavigation({ waitUntil: 'networkidle0' })
   await page.click(UPDATE_SELECTOR)
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(2000)
 
   const daysToFill = await page.$$('[bgcolor="red"]')
   console.log(`you have ${daysToFill.length} days to update`)
@@ -40,18 +40,18 @@ async function main() {
     await dayToFill.click()
     await page.waitForTimeout(1000);
 
-    const popup = await newPagePromise;
-    await popup.waitForTimeout(1000);
+    const popup = await newPagePromise
+    await popup.waitForTimeout(1000)
     await popup.type(START_MINUTE_SELECTOR, '00')
     await popup.type(START_HOUR_SELECTOR, '09')
     await popup.type(END_MINUTE_SELECTOR, '00')
     await popup.type(END_HOUR_SELECTOR, '18')
     await popup.click(LOGIN_SELECTOR)
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1000)
   }
 
-  await browser.close();
+  await browser.close()
 
 }
 
-main();
+main()
