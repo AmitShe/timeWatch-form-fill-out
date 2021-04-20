@@ -6,7 +6,7 @@
   },
   "main": "timeWatch.js",
   "devDependencies": {
-    "puppeteer": "^8.0.0"
+    "puppeteer": "8.0.0"
   },
   "scripts": {
     "start": "node timeWatch.js",
